@@ -455,7 +455,7 @@ void encryptFile(string input,string encryptedFile)
             int i=0;
             while(tp[i]!='\0')
             {
-                outputtext += tp[i]+key;
+                outputtext += (tp[i]+key)%256;
                 i++;
             }
             //storing our encrypted data in encryption.aes
@@ -513,7 +513,7 @@ void decryptFile(string output,string encryptedFile)
             int i=0;
             while ( myText[i]!='\0' )
             {
-                outputtext += myText[i]-key;
+                outputtext += (myText[i]-key)%256;
                 i++;
             }
             // cout << outputtext.substr(0,messlength-1) << endl << endl;
